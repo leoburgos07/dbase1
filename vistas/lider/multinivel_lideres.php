@@ -48,12 +48,12 @@
                 <h1>Estructura de líderes</h1>
 
                 <?php
-                    if($perfilUsuario != "1" &&  $perfilUsuario != "2"){
+                if ($perfilUsuario != "1" &&  $perfilUsuario != "2") {
                 ?>
-                <p class="texto40 errorTexto m-0">
-                    <?= $_SESSION['usuarioNombreCompleto']; ?>
-                </p>
-                        <p class="texto40 mt-0"><?= $cedula_lider ?> <br>  <?= $_SESSION["usuarioMunicipio"] ?></p>
+                    <p class="texto40 errorTexto m-0">
+                        <?= $_SESSION['usuarioNombreCompleto']; ?>
+                    </p>
+                    <p class="texto40 mt-0"><?= $cedula_lider ?> <br> <?= $_SESSION["usuarioMunicipio"] ?></p>
                 <?php } ?>
 
                 <div class="contenedorResultados">

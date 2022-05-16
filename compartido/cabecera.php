@@ -34,7 +34,7 @@ $sitioBase = ($_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME']
           '/vistas/lider/consulta_por_nombre.php',
           '/vistas/lider/multinivel_lideres.php'
         ]
-      ) 
+      )
     ) { ?>
       <a href="<?= $sitioBase ?>/vistas/lider/informe_lider.php">
         <button name="boton4" class="boton fondoRojo">
@@ -68,4 +68,5 @@ $sitioBase = ($_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME']
       </a>
     <?php } ?>
   </div>
+  <a href="#container"> <img src="/dbasetarget/recursos/img/iconos/flecha.png" alt=""/></a>
 </header>
