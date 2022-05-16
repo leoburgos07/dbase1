@@ -1,0 +1,81 @@
+.login-box {
+  margin-top: 0;
+  padding-top: 25px;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+
+.contenedorInformesMenu {
+  text-align: start;
+  font-size: 36px;
+}
+
+.contenedorInformesMenu li {
+  margin-bottom: 20px;
+}
+
+.contenedorInformesMenu li a{
+  font-size: 40px;
+}
+
+
+.tablaResultado {
+  border: 1px solid white;
+  border-collapse: collapse;
+  font-size: 25px !important;
+  width: 100%;
+}
+
+td, th {
+  padding: 5px;
+}
+
+th {
+  border: 1px solid white;
+}
+
+.ancho25 > th {
+  width: 25% !important;
+}
+
+.columnaBorderInferior > td {
+  border-bottom: 1px solid gray;
+}
+
+.textoCentrado {
+  text-align: center;
+}
+
+.tituloTabla {
+  font-size: 46px !important;
+  font-weight: lighter;
+}
+
+.texto35 {
+  font-size: 35px !important;
+}
+
+
+.texto40 {
+  font-size: 40px !important;
+}
+
+.texto30 {
+  font-size: 30px !important;
+}
+
+.mt-45 {
+  margin-top: 45px !important;
+}
+
+.tablaTextoIzquierda tr td{
+  text-align: start;
+  font-weight: lighter;
+  border-bottom: 1px solid gray;
+}
+
+.ancho30 {
+  width: 30%;
+}

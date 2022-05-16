@@ -1,0 +1,102 @@
+body {
+  background-color: #000000;
+  font-family: sans-serif, Century Gothic;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+  body,td,th {
+  color: #FFFFFF;
+}
+.pikachoose a, #fancybox-close, .fancyimage {
+  border-bottom: 0px dotted #FFFFFF;
+}
+
+#container {
+  height: 1230px;
+  width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  display: inherit;
+}
+
+.boton {
+  margin-left: 19px;
+  margin-right: auto;
+  width: 160px;
+  height: 45px;
+  margin-top: 3px;
+  font-size: 24px;
+  text-shadow: 0 0 1px;
+  cursor: pointer;
+  background-color: #465064;
+  color: #FFFFFF;
+  border-radius: 7px;
+}
+
+.fondoRojo {
+  background-color: red !important;
+}
+
+a:hover {
+}
+
+#botones {
+  width: 750px;
+  height: 55px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#menu {
+  height: 1171px;
+  width:   750px;
+  float: left;
+  background-color: #ffffff;
+}
+
+.accion {
+  cursor: pointer;
+}
+
+.fijo {
+  top: 0;
+  padding-top: 10px !important;
+  padding-bottom: 5px !important;
+  position: fixed;
+  background-color: #000000;
+}
+
+.mt-64 {
+  margin-top: 64px !important;
+}
+
+.m-0 {
+  margin-top: 0 !important;
+}
+
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.tablaTextoIzquierda tr td{
+  text-align: start;
+  font-weight: lighter;
+  border-bottom: 1px solid gray;
+}
+
+
+.tablaResultado {
+  border: 1px solid white;
+  border-collapse: collapse;
+  font-size: 25px !important;
+  width: 100%;
+}
+.borderNone{
+  border-style:hidden !important;
+}
+
