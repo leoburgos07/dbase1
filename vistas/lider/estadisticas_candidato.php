@@ -37,8 +37,8 @@
 <body>
   <div id="container">
 
-    <!-- header <?php require '../../compartido/cabecera.php' ?>-->
-
+    <!-- header -->
+    <?php require '../../compartido/cabecera.php' ?>
     <!-- FIN header -->
 
 

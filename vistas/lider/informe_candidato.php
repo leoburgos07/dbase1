@@ -60,7 +60,7 @@
              -->
             <li>
               <a href="./estadisticas_candidato.php">
-                Estadísticas
+                Gráficas
               </a>
             </li>
 
