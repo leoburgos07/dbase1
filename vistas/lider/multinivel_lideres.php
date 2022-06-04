@@ -34,14 +34,15 @@
 </head>
 
 <body>
+    
     <div id="container">
-
         <!-- header -->
         <?php require '../../compartido/cabecera.php' ?>
         <!-- FIN header -->
 
 
         <!-- LOGIN -->
+
         <div class="mt-45" id="portada" align="center">
 
             <div class="login-box">

@@ -34,8 +34,9 @@
 </head>
 
 <body>
-  <div id="container">
 
+  <div id="container">
+  
     <!-- header -->
     <?php require '../../compartido/cabecera.php' ?>
     <!-- FIN header -->

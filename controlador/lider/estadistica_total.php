@@ -45,9 +45,13 @@ $consulta = (
 $resultados = $conexion->query($consulta);
 
 $estadisticaAmigosPorPais = [];
+$labels = [];
+$values = [];
 
 if ($resultados->num_rows) { // Hay registros
   foreach ($resultados as $resultado) {
+    array_push($labels, $resultado['pais']);
+    array_push($values, $resultado['amigosCantidad']);
     $estadisticaAmigosPorPais[] = [
       'pais' => $resultado['pais'],
       'amigosCantidad' => $resultado['amigosCantidad'],
@@ -111,7 +115,6 @@ $estadisticaAmigosPorMunicipio = [];
 
 if ($resultados->num_rows) { // Hay registros
   foreach ($resultados as $resultado) {
-    
     $estadisticaAmigosPorMunicipio[] = [
       'pais' => $resultado['pais'],
       'dpto' => $resultado['dpto'],

@@ -30,14 +30,15 @@
   </style>
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
 
 </head>
 
 <body>
   <div id="container">
 
-    <!-- header -->
-     <?php require '../../compartido/cabecera.php' ?> 
+    <!-- header <?php require '../../compartido/cabecera.php' ?>-->
+
     <!-- FIN header -->
 
 
@@ -46,6 +47,10 @@
 
       <div class="login-box">
         <h1>Total campaña</h1>
+        <div>
+          <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+
 
         <div class="contenedorResultados">
 
@@ -55,22 +60,22 @@
 
               <th>Cantidad de amigos</th>
             </tr>
-            
-              <tr class="columnaBorderInferior">
-                <td style="text-align: center;"><?= $totalAmigos ?></td>
-              </tr>
+
+            <tr class="columnaBorderInferior">
+              <td style="text-align: center;"><?= $totalAmigos ?></td>
+            </tr>
           </table>
-          <br/>
-          <br/>
+          <br />
+          <br />
 
 
-         <h1 class="tituloTabla textoVerde">Por País</h1>
+          <h1 class="tituloTabla textoVerde">Por País</h1>
           <table class="tablaResultado">
             <tr class="ancho25">
               <th>País</th>
               <th>Cantidad de amigos</th>
             </tr>
-            <?php foreach($estadisticaAmigosPorPais as $estadisticaAmigo) { ?>
+            <?php foreach ($estadisticaAmigosPorPais as $estadisticaAmigo) { ?>
               <tr class="columnaBorderInferior">
                 <td><?= $estadisticaAmigo['pais'] ?></td>
                 <td class="textoCentrado"><?= $estadisticaAmigo['amigosCantidad'] ?></td>
@@ -78,17 +83,17 @@
             <?php } ?>
           </table>
 
-          <br/>
-          <br/>
+          <br />
+          <br />
 
-          <h1 class="tituloTabla textoVerde" >Por Departamento</h1>
+          <h1 class="tituloTabla textoVerde">Por Departamento</h1>
           <table class="tablaResultado">
             <tr class="ancho25">
               <th>País</th>
               <th>Departamento</th>
               <th>Cantidad de amigos</th>
             </tr>
-            <?php foreach($estadisticaAmigosPorDepartamento as $estadisticaAmigo) { ?>
+            <?php foreach ($estadisticaAmigosPorDepartamento as $estadisticaAmigo) { ?>
               <tr class="columnaBorderInferior">
                 <td><?= $estadisticaAmigo['pais'] ?></td>
                 <td><?= $estadisticaAmigo['dpto'] ?></td>
@@ -97,8 +102,8 @@
             <?php } ?>
           </table>
 
-          <br/>
-          <br/>
+          <br />
+          <br />
 
           <h1 class="tituloTabla textoVerde">Por Municipio</h1>
           <table class="tablaResultado">
@@ -108,7 +113,7 @@
               <th>Municipio</th>
               <th>Cantidad de amigos</th>
             </tr>
-            <?php foreach($estadisticaAmigosPorMunicipio as $estadisticaAmigo) { ?>
+            <?php foreach ($estadisticaAmigosPorMunicipio as $estadisticaAmigo) { ?>
               <tr class="columnaBorderInferior">
                 <td><?= $estadisticaAmigo['pais'] ?></td>
                 <td><?= $estadisticaAmigo['dpto'] ?></td>
@@ -118,8 +123,8 @@
             <?php } ?>
           </table>
 
-          <br/>
-          <br/>
+          <br />
+          <br />
 
           <h1 class="tituloTabla textoVerde">Por Barrio</h1>
           <table class="tablaResultado">
@@ -129,7 +134,7 @@
               <th>Barrio</th>
               <th>Cantidad de amigos</th>
             </tr>
-            <?php foreach($estadisticaAmigosPorBarrio as $estadisticaAmigo) { ?>
+            <?php foreach ($estadisticaAmigosPorBarrio as $estadisticaAmigo) { ?>
               <tr class="columnaBorderInferior">
                 <td><?= $estadisticaAmigo['dpto'] ?></td>
                 <td><?= $estadisticaAmigo['municipio'] ?></td>
@@ -139,8 +144,8 @@
             <?php } ?>
           </table>
 
-          <br/>
-          <br/>
+          <br />
+          <br />
         </div>
       </div>
       <!-- FIN LOGIN -->
@@ -148,7 +153,62 @@
     </div>
 
 
-  <script src="../../recursos/js/lider.js"></script>
+    <script src="../../recursos/js/lider.js"></script>
+    <script>
+      const ctx = document.getElementById('myChart').getContext('2d');
+      const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          //labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          labels: [
+            <?php
+            foreach ($labels as $label) { ?> ' <?php echo $label  ?> ',
+            <?php
+            }
+            ?>
+          ],
+          datasets: [{
+            label: '# de amigos',
+            //data: [12, 19, 3],
+            data: [
+              <?php foreach ($values as $value) { ?> ' <?php echo $value ?> ',
+              <?php } ?>
+            ],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 3
+          }]
+        },
+        options: {
+          plugins: {
+            legend: {
+              position: 'top',
+            }
+          },
+          indexAxis: 'y',
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          },
+        }
+      });
+    </script>
 
 </body>
 

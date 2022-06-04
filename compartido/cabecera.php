@@ -1,11 +1,10 @@
 <?php
 $sitioBase = ($_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME']
   //           https://localhost
-
-
 );
 ?>
 
+<a href="#container" id="floatButton"><img src="/dbasetarget/recursos/img/iconos/flecha.png" alt="" /></a>
 
 <header class="fijo">
   <div id="botones">
@@ -68,5 +67,4 @@ $sitioBase = ($_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME']
       </a>
     <?php } ?>
   </div>
-  <a href="#container"> <img src="/dbasetarget/recursos/img/iconos/flecha.png" alt=""/></a>
 </header>
