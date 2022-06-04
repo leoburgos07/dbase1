@@ -47,106 +47,30 @@
 
       <div class="login-box">
         <h1>Total campaña</h1>
-        <div>
-          <canvas id="myChart" width="400" height="400"></canvas>
+        <br>
+        <h1>Paises</h1>
+        <div class="tableCanvas">
+          <canvas id="tablaPais" width="400" height="400"></canvas>
+        </div>
+        <br><br><br><br>
+        <h1>Departamentos</h1>
+        <br>
+        <div class="tableCanvas">
+          <canvas id="tablaDepartamento" width="400" height="400"></canvas>
+        </div>
+        <br><br><br><br>
+        <h1>Municipios</h1>
+        <br>
+        <div class="tableCanvas">
+          <canvas id="tablaMunicipio" width="400" height="400"></canvas>
+        </div>
+        <br><br><br><br>
+        <h1>Barrios</h1>
+        <br>
+        <div class="">
+          <canvas id="tablaBarrios" width="400" height="400"></canvas>
         </div>
 
-
-        <div class="contenedorResultados">
-
-          <h1 class="tituloTabla textoVerde"> Total amigos</h1>
-          <table class="tablaResultado">
-            <tr class="ancho25">
-
-              <th>Cantidad de amigos</th>
-            </tr>
-
-            <tr class="columnaBorderInferior">
-              <td style="text-align: center;"><?= $totalAmigos ?></td>
-            </tr>
-          </table>
-          <br />
-          <br />
-
-
-          <h1 class="tituloTabla textoVerde">Por País</h1>
-          <table class="tablaResultado">
-            <tr class="ancho25">
-              <th>País</th>
-              <th>Cantidad de amigos</th>
-            </tr>
-            <?php foreach ($estadisticaAmigosPorPais as $estadisticaAmigo) { ?>
-              <tr class="columnaBorderInferior">
-                <td><?= $estadisticaAmigo['pais'] ?></td>
-                <td class="textoCentrado"><?= $estadisticaAmigo['amigosCantidad'] ?></td>
-              </tr>
-            <?php } ?>
-          </table>
-
-          <br />
-          <br />
-
-          <h1 class="tituloTabla textoVerde">Por Departamento</h1>
-          <table class="tablaResultado">
-            <tr class="ancho25">
-              <th>País</th>
-              <th>Departamento</th>
-              <th>Cantidad de amigos</th>
-            </tr>
-            <?php foreach ($estadisticaAmigosPorDepartamento as $estadisticaAmigo) { ?>
-              <tr class="columnaBorderInferior">
-                <td><?= $estadisticaAmigo['pais'] ?></td>
-                <td><?= $estadisticaAmigo['dpto'] ?></td>
-                <td class="textoCentrado"><?= $estadisticaAmigo['amigosCantidad'] ?></td>
-              </tr>
-            <?php } ?>
-          </table>
-
-          <br />
-          <br />
-
-          <h1 class="tituloTabla textoVerde">Por Municipio</h1>
-          <table class="tablaResultado">
-            <tr class="ancho25">
-              <th>País</th>
-              <th>Departamento</th>
-              <th>Municipio</th>
-              <th>Cantidad de amigos</th>
-            </tr>
-            <?php foreach ($estadisticaAmigosPorMunicipio as $estadisticaAmigo) { ?>
-              <tr class="columnaBorderInferior">
-                <td><?= $estadisticaAmigo['pais'] ?></td>
-                <td><?= $estadisticaAmigo['dpto'] ?></td>
-                <td><?= $estadisticaAmigo['municipio'] ?></td>
-                <td class="textoCentrado"><?= $estadisticaAmigo['amigosCantidad'] ?></td>
-              </tr>
-            <?php } ?>
-          </table>
-
-          <br />
-          <br />
-
-          <h1 class="tituloTabla textoVerde">Por Barrio</h1>
-          <table class="tablaResultado">
-            <tr class="ancho25">
-              <th>Departamento</th>
-              <th>Municipio</th>
-              <th>Barrio</th>
-              <th>Cantidad de amigos</th>
-            </tr>
-            <?php foreach ($estadisticaAmigosPorBarrio as $estadisticaAmigo) { ?>
-              <tr class="columnaBorderInferior">
-                <td><?= $estadisticaAmigo['dpto'] ?></td>
-                <td><?= $estadisticaAmigo['municipio'] ?></td>
-                <td><?= $estadisticaAmigo['barrio'] ?></td>
-                <td class="textoCentrado"><?= $estadisticaAmigo['amigosCantidad'] ?></td>
-              </tr>
-            <?php } ?>
-          </table>
-
-          <br />
-          <br />
-        </div>
       </div>
       <!-- FIN LOGIN -->
 
@@ -155,14 +79,17 @@
 
     <script src="../../recursos/js/lider.js"></script>
     <script>
-      const ctx = document.getElementById('myChart').getContext('2d');
-      const myChart = new Chart(ctx, {
+      const tablaPais = document.getElementById('tablaPais').getContext('2d');
+      const tablaDepartamento = document.getElementById('tablaDepartamento').getContext('2d');
+      const tablaMunicipio = document.getElementById('tablaMunicipio').getContext('2d');
+      const tablaBarrios = document.getElementById('tablaBarrios').getContext('2d');
+      const paisTable = new Chart(tablaPais, {
         type: 'bar',
         data: {
           //labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
           labels: [
             <?php
-            foreach ($labels as $label) { ?> ' <?php echo $label  ?> ',
+            foreach ($labelsPais as $label) { ?> ' <?php echo $label  ?> ',
             <?php
             }
             ?>
@@ -171,7 +98,57 @@
             label: '# de amigos',
             //data: [12, 19, 3],
             data: [
-              <?php foreach ($values as $value) { ?> ' <?php echo $value ?> ',
+              <?php foreach ($valuesPais as $value) { ?> ' <?php echo $value ?> ',
+              <?php } ?>
+            ],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          plugins: {
+            legend: {
+              position: 'top',
+            }
+          },
+          indexAxis: 'y',
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          },
+        }
+      });
+      const departamentoTable = new Chart(tablaDepartamento, {
+        type: 'bar',
+        data: {
+          labels: [
+            <?php
+            foreach ($labelsDepartamento as $label) { ?> ' <?php echo $label  ?> ',
+            <?php
+            }
+            ?>
+          ],
+          datasets: [{
+            label: '# de amigos',
+            data: [
+              <?php foreach ($valuesDepartamento as $value) { ?> ' <?php echo $value ?> ',
               <?php } ?>
             ],
             backgroundColor: [
@@ -191,6 +168,106 @@
               'rgba(255, 159, 64, 1)'
             ],
             borderWidth: 3
+          }]
+        },
+        options: {
+          plugins: {
+            legend: {
+              position: 'top',
+            }
+          },
+          indexAxis: 'y',
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          },
+        }
+      });
+      const municipiosTable = new Chart(tablaMunicipio, {
+        type: 'bar',
+        data: {
+          labels: [
+            <?php
+            foreach ($labelsMunicipios as $label) { ?> ' <?php echo $label  ?> ',
+            <?php
+            }
+            ?>
+          ],
+          datasets: [{
+            label: '# de amigos',
+            data: [
+              <?php foreach ($valuesMunicipios as $value) { ?> ' <?php echo $value ?> ',
+              <?php } ?>
+            ],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 3
+          }]
+        },
+        options: {
+          plugins: {
+            legend: {
+              position: 'top',
+            }
+          },
+          indexAxis: 'y',
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          },
+        }
+      });
+      const barriosTable = new Chart(tablaBarrios, {
+        type: 'bar',
+        data: {
+          labels: [
+            <?php
+            foreach ($labelsBarrios as $label) { ?> ' <?php echo $label  ?> ',
+            <?php
+            }
+            ?>
+          ],
+          datasets: [{
+            label: '# de amigos',
+            data: [
+              <?php foreach ($valuesBarrios as $value) { ?> ' <?php echo $value ?> ',
+              <?php } ?>
+            ],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
           }]
         },
         options: {

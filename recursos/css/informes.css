@@ -79,3 +79,8 @@ th {
 .ancho30 {
   width: 30%;
 }
+
+.tableCanvas{
+  background: white;
+  border-radius: 15px;
+}
