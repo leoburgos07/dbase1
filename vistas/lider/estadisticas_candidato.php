@@ -48,24 +48,26 @@
       <div class="login-box">
         <h1>Total campaña</h1>
         <br>
-        <h1>Paises</h1>
+        <h1>
+          <?php  echo count($labelsPais)    ?>  
+        Paises</h1>
         <div class="tableCanvas">
           <canvas id="tablaPais" width="400" height="400"></canvas>
         </div>
         <br><br><br><br>
-        <h1>Departamentos</h1>
+        <h1> <?php echo count($labelsDepartamento) ?>  Departamentos</h1>
         <br>
         <div class="tableCanvas">
           <canvas id="tablaDepartamento" width="400" height="400"></canvas>
         </div>
         <br><br><br><br>
-        <h1>Municipios</h1>
+        <h1> <?php echo count($labelsMunicipios) ?> Municipios</h1>
         <br>
         <div class="tableCanvas">
           <canvas id="tablaMunicipio" width="400" height="400"></canvas>
         </div>
         <br><br><br><br>
-        <h1>Barrios</h1>
+        <h1> <?php echo count($labelsBarrios) ?> Barrios</h1>
         <br>
         <div class="">
           <canvas id="tablaBarrios" width="400" height="400"></canvas>
