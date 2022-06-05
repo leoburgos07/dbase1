@@ -46,31 +46,35 @@
     <div class="mt-45" id="portada" align="center">
 
       <div class="login-box">
-        <h1>Total campaña</h1>
+        <h1>Total  <?php  echo number_format($totalAmigos) ?> Amigos </h1>
         <br>
         <h1>
           <?php  echo count($labelsPais)    ?>  
         Paises</h1>
-        <div class="tableCanvas">
+        <p style="font-size:20px;"> <?php foreach($labelsPais as $pais){ echo $pais . ', ';} ?>   </p>
+        <div class="tableCanvas" >
           <canvas id="tablaPais" width="400" height="400"></canvas>
         </div>
         <br><br><br><br>
         <h1> <?php echo count($labelsDepartamento) ?>  Departamentos</h1>
+        <p style="font-size:20px;"> <?php foreach($labelsMunicipios as $municipio){ echo $municipio . ', ';} ?>   </p>
         <br>
-        <div class="tableCanvas">
-          <canvas id="tablaDepartamento" width="400" height="400"></canvas>
+        <div class="tableCanvas" >
+          <canvas id="tablaDepartamento" width="400" height="600"></canvas>
         </div>
         <br><br><br><br>
         <h1> <?php echo count($labelsMunicipios) ?> Municipios</h1>
+        <p style="font-size:20px;"> <?php foreach($labelsDepartamento as $departamento){ echo $departamento . ', ';} ?>   </p>
         <br>
-        <div class="tableCanvas">
-          <canvas id="tablaMunicipio" width="400" height="400"></canvas>
+        <div class="tableCanvas" >
+          <canvas id="tablaMunicipio" width="400" height="600 "></canvas>
         </div>
         <br><br><br><br>
         <h1> <?php echo count($labelsBarrios) ?> Barrios</h1>
+        <p style="font-size:20px;"> <?php foreach($labelsBarrios as $barrio){ echo $barrio . ', ';} ?>   </p>
         <br>
-        <div class="">
-          <canvas id="tablaBarrios" width="400" height="400"></canvas>
+        <div class="tableCanvas" style="border:2px solid red">
+          <canvas id="tablaBarrios" width="400" height="900"></canvas>
         </div>
 
       </div>
@@ -88,7 +92,6 @@
       const paisTable = new Chart(tablaPais, {
         type: 'bar',
         data: {
-          //labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
           labels: [
             <?php
             foreach ($labelsPais as $label) { ?> ' <?php echo $label  ?> ',
@@ -97,8 +100,7 @@
             ?>
           ],
           datasets: [{
-            label: '# de amigos',
-            //data: [12, 19, 3],
+            label: 'Amigos',
             data: [
               <?php foreach ($valuesPais as $value) { ?> ' <?php echo $value ?> ',
               <?php } ?>
@@ -142,13 +144,13 @@
         data: {
           labels: [
             <?php
-            foreach ($labelsDepartamento as $label) { ?> ' <?php echo $label  ?> ',
+            foreach ($labelsDepartamento as $label) { ?> ' <?php echo strtoupper($label)  ?> ',
             <?php
             }
             ?>
           ],
           datasets: [{
-            label: '# de amigos',
+            label: 'Amigos',
             data: [
               <?php foreach ($valuesDepartamento as $value) { ?> ' <?php echo $value ?> ',
               <?php } ?>
@@ -192,13 +194,13 @@
         data: {
           labels: [
             <?php
-            foreach ($labelsMunicipios as $label) { ?> ' <?php echo $label  ?> ',
+            foreach ($labelsMunicipios as $label) { ?> ' <?php echo strtoupper($label)  ?> ',
             <?php
             }
             ?>
           ],
           datasets: [{
-            label: '# de amigos',
+            label: 'Amigos',
             data: [
               <?php foreach ($valuesMunicipios as $value) { ?> ' <?php echo $value ?> ',
               <?php } ?>
@@ -242,13 +244,13 @@
         data: {
           labels: [
             <?php
-            foreach ($labelsBarrios as $label) { ?> ' <?php echo $label  ?> ',
+            foreach ($labelsBarrios as $label) { ?> ' <?php echo strtoupper(substr($label,0,20))   ?> ',
             <?php
             }
             ?>
           ],
           datasets: [{
-            label: '# de amigos',
+            label: 'Amigos',
             data: [
               <?php foreach ($valuesBarrios as $value) { ?> ' <?php echo $value ?> ',
               <?php } ?>

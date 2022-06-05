@@ -25,7 +25,6 @@ if($resultados->num_rows){
 }
 
 
-
 // Estadistica de amigos por pais
 $consulta = (
   "SELECT " .

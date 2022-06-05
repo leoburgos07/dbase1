@@ -81,6 +81,6 @@ th {
 }
 
 .tableCanvas{
-  background: white;
+  border: 2px solid red;
   border-radius: 15px;
 }

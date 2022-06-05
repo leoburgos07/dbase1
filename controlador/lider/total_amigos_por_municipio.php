@@ -65,6 +65,8 @@ if ($resultados->num_rows) { // Hay registros
     $amigosPorMunicipios[] = $amigosPorMunicipio;
     
   }
+
+  // echo var_dump($amigos);
  
 
 
