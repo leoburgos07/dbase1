@@ -25,6 +25,7 @@ if($resultados->num_rows){
 }
 
 
+
 // Estadistica de amigos por pais
 $consulta = (
   "SELECT " .
@@ -46,7 +47,6 @@ $resultados = $conexion->query($consulta);
 $estadisticaAmigosPorPais = [];
 $labelsPais = [];
 $valuesPais = [];
-
 if ($resultados->num_rows) { // Hay registros
   foreach ($resultados as $resultado) {
     array_push($labelsPais, $resultado['pais']);

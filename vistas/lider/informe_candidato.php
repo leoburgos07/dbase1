@@ -64,6 +64,12 @@
               </a>
             </li>
 
+            <li>
+              <a href="./estructura_amigos_candidato.php">
+                Estructura de Amigos
+              </a>
+            </li>
+
 
             <!--
               Listad de amigos que tiene ese lider

@@ -65,7 +65,7 @@
              -->
             <li>
               <a href="./estadisticas_lider.php">
-                Estadísticas
+              Gráficas Estadísticas
               </a>
             </li>
 

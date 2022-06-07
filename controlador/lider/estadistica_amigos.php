@@ -42,9 +42,13 @@ $consulta = (
 $resultados = $conexion->query($consulta);
 
 $estadisticaAmigosPorPais = [];
+$labelsPais = [];
+$valuesPais = [];
 
 if ($resultados->num_rows) { // Hay registros
   foreach ($resultados as $resultado) {
+    array_push($labelsPais, $resultado['pais']);
+    array_push($valuesPais, $resultado['amigosCantidad']);
     $estadisticaAmigosPorPais[] = [
       'pais' => $resultado['pais'],
       'amigosCantidad' => $resultado['amigosCantidad'],
@@ -71,9 +75,13 @@ $consulta = (
 $resultados = $conexion->query($consulta);
 
 $estadisticaAmigosPorDepartamento = [];
+$labelsDepartamento = [];
+$valuesDepartamento = [];
 
 if ($resultados->num_rows) { // Hay registros
   foreach ($resultados as $resultado) {
+    array_push($labelsDepartamento, $resultado['dpto']);
+    array_push($valuesDepartamento, $resultado['amigosCantidad']);
     $estadisticaAmigosPorDepartamento[] = [
       'pais' => $resultado['pais'],
       'dpto' => $resultado['dpto'],
@@ -103,9 +111,13 @@ $consulta = (
 $resultados = $conexion->query($consulta);
 
 $estadisticaAmigosPorMunicipio = [];
+$labelsMunicipios = [];
+$valuesMunicipios = [];
 
 if ($resultados->num_rows) { // Hay registros
   foreach ($resultados as $resultado) {
+    array_push($labelsMunicipios, $resultado['municipio']);
+    array_push($valuesMunicipios, $resultado['amigosCantidad']);
     $estadisticaAmigosPorMunicipio[] = [
       'pais' => $resultado['pais'],
       'dpto' => $resultado['dpto'],

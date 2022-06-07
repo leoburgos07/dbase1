@@ -1,4 +1,4 @@
-<?php require '../../controlador/lider/contador_lideres.php'; ?>
+<?php require '../../controlador/lider/estadistica_total.php'; ?>
 
 <!DOCTYPE HTML>
 <html>
@@ -34,29 +34,20 @@
 </head>
 
 <body>
-
     <div id="container">
+
         <!-- header -->
         <?php require '../../compartido/cabecera.php' ?>
         <!-- FIN header -->
 
 
         <!-- LOGIN -->
-
         <div class="mt-45" id="portada" align="center">
 
             <div class="login-box">
-                <h1> <?=  number_format($total) ?> Lideres </h1>
-                <p class="texto40 errorTexto m-0">
-                    <?= $_SESSION['usuarioNombreCompleto']; ?>
-                </p>
-
-                <?php
-                if ($perfilUsuario != "1" &&  $perfilUsuario != "2") {
-                ?>
-                    <p class="texto40 mt-0"><?= $cedula_lider ?> <br> <?= $_SESSION["usuarioMunicipio"] ?></p>
-                <?php } ?>
-                    <br><br>
+                <h1><?= number_format($totalAmigos) ?> Amigos</h1>
+                <h2 class="errorTexto" style="font-size:2.2em"> <?= $_SESSION["usuarioNombreCompleto"] ?> </h2>
+                <!-- Tabla por paises -->
                 <div class="contenedorResultados">
                     <h1 class="tituloTabla textoVerde">Por País</h1>
                     <table class="tablaResultado">
@@ -64,10 +55,10 @@
                             <th>País</th>
                             <th>Cantidad de líderes</th>
                         </tr>
-                        <?php foreach ($lideres as $item) { ?>
+                        <?php foreach ($estadisticaAmigosPorPais as $item) { ?>
                             <tr class="columnaBorderInferior">
                                 <td><?= $item['pais'] ?></td>
-                                <td class="textoCentrado"><?= number_format($item['cantidadLideres']) ?></td>
+                                <td class="textoCentrado"><?= number_format($item['amigosCantidad']) ?></td>
                             </tr>
                         <?php } ?>
                     </table>
@@ -75,7 +66,7 @@
                     <br />
                     <br />
                 </div>
-                <br>
+                <!-- Tabla por departamentos -->
                 <div class="contenedorResultados">
                     <h1 class="tituloTabla textoVerde">Por Departamento</h1>
                     <table class="tablaResultado">
@@ -84,17 +75,18 @@
                             <th>Departamento</th>
                             <th>Cantidad de líderes</th>
                         </tr>
-                        <?php foreach ($lideresPorDpto as $item) { ?>
+                        <?php foreach ($estadisticaAmigosPorDepartamento as $item) { ?>
                             <tr class="columnaBorderInferior">
                                 <td><?= $item['pais'] ?></td>
                                 <td><?= $item['dpto'] ?></td>
-                                <td class="textoCentrado"><?= number_format($item['cantidadLideres']) ?></td>
+                                <td class="textoCentrado"><?= number_format($item['amigosCantidad']) ?></td>
                             </tr>
                         <?php } ?>
                     </table>
                     <br />
                     <br />
                 </div>
+                <!-- Tabla por municipios -->
                 <br><br>
                 <div class="contenedorResultados">
                     <h1 class="tituloTabla textoVerde">Por Municipio</h1>
@@ -104,11 +96,11 @@
                             <th>Municipio</th>
                             <th>Cantidad de líderes</th>
                         </tr>
-                        <?php foreach ($lideresPorMunicipio as $item) { ?>
+                        <?php foreach ($estadisticaAmigosPorMunicipio as $item) { ?>
                             <tr class="columnaBorderInferior">
                                 <td><?= $item['dpto'] ?></td>
                                 <td><?= $item['municipio'] ?></td>
-                                <td class="textoCentrado"><?= number_format($item['cantidadLideres']) ?></td>
+                                <td class="textoCentrado"><?= number_format($item['amigosCantidad']) ?></td>
                             </tr>
                         <?php } ?>
                     </table>
@@ -116,6 +108,7 @@
                     <br />
                     <br />
                 </div>
+                <!-- Tabla por barrios -->
                 <br><br>
                 <div class="contenedorResultados">
                     <h1 class="tituloTabla textoVerde">Por Barrio</h1>
@@ -125,11 +118,11 @@
                             <th>Barrio</th>
                             <th>Cantidad de líderes</th>
                         </tr>
-                        <?php foreach ($lideresPorBarrio as $item) { ?>
+                        <?php foreach ($estadisticaAmigosPorBarrio as $item) { ?>
                             <tr class="columnaBorderInferior">
                                 <td><?= $item['municipio'] ?></td>
                                 <td><?= $item['barrio'] ?></td>
-                                <td class="textoCentrado"><?= number_format($item['cantidadLideres']) ?></td>
+                                <td class="textoCentrado"><?= number_format($item['amigosCantidad']) ?></td>
                             </tr>
                         <?php } ?>
                     </table>
@@ -138,12 +131,10 @@
                     <br />
                 </div>
             </div>
+            <!-- FIN LOGIN -->
 
         </div>
-
-
         <script src="../../recursos/js/lider.js"></script>
-
 </body>
 
 </html>

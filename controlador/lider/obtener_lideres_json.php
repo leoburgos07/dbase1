@@ -31,4 +31,4 @@ foreach ($lideres as $lider) {
   $lideres_json[] = $lider;
 }
 
-echo json_encode($lideres_json);
+

@@ -65,13 +65,10 @@ if ($resultados->num_rows) { // Hay registros
     $amigosPorMunicipios[] = $amigosPorMunicipio;
     
   }
-
-  // echo var_dump($amigos);
- 
-
-
-  //echo json_encode($amigosPorMunicipios[0]["amigos"][0]["nombre"]);
+  // echo json_encode($amigosPorMunicipio[]);
 }
+
+
 $consultaLideres = (
   "SELECT CONCAT(a.nombre, ' ',a.apellidos) 'NombreCompleto', a.cedula " . 
   "FROM amigos a " .
@@ -87,5 +84,16 @@ $lideres = [];
     }
  }
 
+$consultaTotalAmigos = (
+  "SELECT count(*) as cantidad FROM amigos  where estado = 1"
+);
+$resultadoTotalAmigos = $conexion->query($consultaTotalAmigos);
+$cantAmigos = [];
+
+if($resultadoTotalAmigos->num_rows){
+  foreach($resultadoTotalAmigos as $result){
+    array_push($cantAmigos,$result);
+  }
+}
 
 

@@ -73,7 +73,7 @@
         <h1> <?php echo count($labelsBarrios) ?> Barrios</h1>
         <p style="font-size:20px;"> <?php foreach($labelsBarrios as $barrio){ echo $barrio . ', ';} ?>   </p>
         <br>
-        <div class="tableCanvas" style="border:2px solid red">
+        <div class="tableCanvas">
           <canvas id="tablaBarrios" width="400" height="900"></canvas>
         </div>
 

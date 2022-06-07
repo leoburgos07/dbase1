@@ -27,4 +27,3 @@ if($resultados->num_rows >0){
         array_push($lideres,$resultado);
     }
 }
-echo json_encode($lideres);

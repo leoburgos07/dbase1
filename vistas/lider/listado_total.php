@@ -37,7 +37,7 @@
 
   <div id="container">
   
-    <!-- header -->
+    <!-- header  -->
     <?php require '../../compartido/cabecera.php' ?>
     <!-- FIN header -->
 
@@ -46,8 +46,8 @@
     <div class="mt-45" id="portada" align="center">
 
       <div class="login-box">
-        <h1 style="padding-bottom:0px">Listado por municipio </h1>
-        fskfhsh
+        <h2 style="padding-bottom:0px; font-size: 35px">Listado por municipio </h2>
+        <h1> Total <?php foreach($cantAmigos as $cant){ echo number_format($cant['cantidad']); } ?> Amigos  </h1>
         <h2 class="errorTexto" style="font-size:2.2em"> <?= $_SESSION["usuarioNombreCompleto"] ?> </h2>
         <h2>Los marcados en color <span style="color:green;">VERDE</span> son tus líderes</h2>
 
@@ -71,7 +71,8 @@
               </tr>
               <tr class="borderNone" style="border-bottom:1px solid white !important">
                 <th colspan="4">
-                  <?= $amigosPorMunicipio['barrio'] ?>
+                  <?= $amigosPorMunicipio['barrio'] ?> <br>
+                  <span class="errorTexto"> <?= count($amigosPorMunicipio['amigos']) ?> </span>  Amigos
                 </th>
               </tr>
             
