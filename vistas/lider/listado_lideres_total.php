@@ -1,4 +1,4 @@
-<?php require '../../controlador/lider/listar_lideres_totales.php'; ?>
+<?php require '../../controlador/lider/total_amigos_por_municipio.php'; ?>
 
 <!DOCTYPE HTML>
 <html>
@@ -34,10 +34,11 @@
 </head>
 
 <body>
+
     <div id="container">
 
-        <!-- header -->
-        <!-- <?php require '../../compartido/cabecera.php' ?> -->
+        <!-- header  -->
+        <?php require '../../compartido/cabecera.php' ?>
         <!-- FIN header -->
 
 
@@ -45,10 +46,54 @@
         <div class="mt-45" id="portada" align="center">
 
             <div class="login-box">
-                <h1>Listado de líderes</h1>
+                <h2 style="padding-bottom:0px; font-size: 35px">Líderes por barrio</h2>
+                <h1> Total <?= count($contadorLideres) ?> Lideres </h1>
+                <h2 class="errorTexto" style="font-size:2.2em"> <?= $_SESSION["usuarioNombreCompleto"] ?> </h2>
 
+                <div class="contenedorResultados">
+                    <?php foreach ($lideresPorBarrios as $liderPorBarrio) { ?>
 
-                
+                        <table class="tablaResultado" style="margin-bottom:2em">
+                            <tr class="borderNone">
+                                <th colspan="4" class="texto35 errorTexto">
+                                    <?= $liderPorBarrio['pais'] ?>
+                                </th>
+                            </tr>
+                            <tr class="borderNone">
+                                <th colspan="4" class="texto30">
+                                    <?= $liderPorBarrio['dpto'] ?>
+                                </th>
+                            </tr>
+                            <tr class="borderNone" style="border-bottom:1px solid white !important">
+                                <th colspan="4" class="textoVerde">
+                                    <?= $liderPorBarrio['municipio'] ?>
+                                </th>
+                            </tr>
+                            <tr class="borderNone" style="border-bottom:1px solid white !important">
+                                <th colspan="4">
+                                    <?= $liderPorBarrio['barrio'] ?> <br>
+                                    <span class="errorTexto"> <?= count($liderPorBarrio['lideres']) ?> </span> Amigos
+                                </th>
+                            </tr>
+                            <tr class="ancho25">
+                                <th>Cédula</th>
+                                <th>Nombre</th>
+                                <th>Apellidos</th>
+                            </tr>
+                            <?php foreach ($liderPorBarrio['lideres'] as $lider) { ?>
+
+                                <tr class="columnaBorderInferior">
+                                    <td style="color:green; border-color:green"><?= $lider['cedula'] ?></td>
+                                    <td style="color:green; border-color:green"><?= $lider['nombre'] ?></td>
+                                    <td style="color:green; border-color:green"><?= $lider['apellidos'] ?></td>
+                                </tr>
+                            <?php } ?>
+
+                        <?php } ?>
+                        </table>
+
+                </div>
+
             </div>
             <!-- FIN LOGIN -->
 

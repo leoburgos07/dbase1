@@ -46,7 +46,7 @@
     <div class="mt-45" id="portada" align="center">
 
       <div class="login-box">
-        <h2 style="padding-bottom:0px; font-size: 35px">Listado por municipio </h2>
+        <h2 style="padding-bottom:0px; font-size: 35px">Listado por barrio</h2>
         <h1> Total <?php foreach($cantAmigos as $cant){ echo number_format($cant['cantidad']); } ?> Amigos  </h1>
         <h2 class="errorTexto" style="font-size:2.2em"> <?= $_SESSION["usuarioNombreCompleto"] ?> </h2>
         <h2>Los marcados en color <span style="color:green;">VERDE</span> son tus líderes</h2>

@@ -47,7 +47,7 @@
     <div class="mt-45" id="portada" align="center">
 
       <div class="login-box">
-        <h1>Informe de campaña</h1>
+        <h1 class="errorTexto">INFORME CANDIDATO</h1>
 
         <div class="contenedorInformesMenu">
           <ul>
