@@ -48,6 +48,7 @@
         <h1 class="texto40 m-0">
           Consulta y Modificación por Cédula
         </h1>
+        aslfhsalkhfl
 
         <form class="formularioConsultarPorCedula">
           <input type="hidden" class="cedulaLider" name="cedula_lider" value="<?= $_SESSION['usuarioCedula'] ?>">
