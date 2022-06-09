@@ -165,5 +165,5 @@ function eliminarAmigo(){
   });
 }
 
-botonEliminarAmigo.addEventListener("click",eliminarAmigo);
+//botonEliminarAmigo.addEventListener("click",eliminarAmigo);
 dEditarAmigo.addEventListener("click", editarAmigo);
