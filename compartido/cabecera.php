@@ -32,7 +32,7 @@ $sitioBase = ($_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME']
           '/vistas/lider/consulta_por_cedula.php',
           '/vistas/lider/consulta_por_nombre.php',
         ]
-      )
+      ) && $_SESSION["usuarioPerfil"] != "1"
     ) { ?>
       <a href="<?= $sitioBase ?>/vistas/lider/informe_lider.php">
         <button name="boton4" class="boton fondoRojo">
