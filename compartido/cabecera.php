@@ -31,7 +31,6 @@ $sitioBase = ($_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME']
           '/vistas/lider/listado_amigos_lider.php',
           '/vistas/lider/consulta_por_cedula.php',
           '/vistas/lider/consulta_por_nombre.php',
-          '/vistas/lider/multinivel_lideres.php'
         ]
       )
     ) { ?>
@@ -48,7 +47,9 @@ $sitioBase = ($_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME']
         '/vistas/lider/listado_total.php',
         '/vistas/lider/consulta_por_cedula_total.php',
         '/vistas/lider/consulta_por_nombre_total.php',
-        '/vistas/lider/multinivel_lideres.php'
+        '/vistas/lider/multinivel_lideres.php',
+        'vistas/lider/estructura_amigos_candidato.php',
+        '/vistas/lider/listado_lideres_total.php'
       ]
     ) && $_SESSION["usuarioPerfil"] == "1") { ?>
 
