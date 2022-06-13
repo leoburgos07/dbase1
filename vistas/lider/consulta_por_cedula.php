@@ -48,8 +48,6 @@
         <h1 class="texto40 m-0">
           Consulta y Modificación por Cédula
         </h1>
-        aslfhsalkhfl
-
         <form class="formularioConsultarPorCedula">
           <input type="hidden" class="cedulaLider" name="cedula_lider" value="<?= $_SESSION['usuarioCedula'] ?>">
           <p class="letraNormal">Digite la cédula: </p>
@@ -69,7 +67,7 @@
 
           <br>
 
-          <input type="hidden" id="sitioEditar" value="<?= ($_SERVER['REQUEST_SCHEME'] .
+          <input type="hidden" id="sitioEditar" value="<?=  ( $_SERVER['REQUEST_SCHEME'] .
                                                           '://' .
                                                           $_SERVER['SERVER_NAME'] .
                                                           '/vistas/amigo/editar_amigo.php' .

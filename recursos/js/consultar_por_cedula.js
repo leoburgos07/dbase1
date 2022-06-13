@@ -1,17 +1,19 @@
-var dBuscarPorCedula = document.querySelector("#buscarPorCedula");
-var dEditarAmigo = document.querySelector("#editarAmigo");
-var dCedula = document.querySelector("#cedula");
-var dCedulaLider = document.querySelector(".cedulaLider");
-var dResultadoContenedor = document.querySelector(".resultadoContenedor");
-var dTablaResultado = document.querySelector(".tablaResultado");
-var dCedulaEncontrada = document.querySelector("#cedulaEncontrada");
-var ningunLider = document.querySelector("#ningunLiderEncontrado");
-var perfilUsuario = document.querySelector('#perfil');
-var botonEliminarAmigo = document.querySelector('#eliminarAmigo')
+const dBuscarPorCedula = document.querySelector("#buscarPorCedula");
+const dEditarAmigo = document.querySelector("#editarAmigo");
+const dCedula = document.querySelector("#cedula");
+const dCedulaLider = document.querySelector(".cedulaLider");
+const dResultadoContenedor = document.querySelector(".resultadoContenedor");
+const dTablaResultado = document.querySelector(".tablaResultado");
+const dCedulaEncontrada = document.querySelector("#cedulaEncontrada");
+const ningunLider = document.querySelector("#ningunLiderEncontrado");
+const perfilUsuario = document.querySelector("#perfil");
+const botonEliminarAmigo = document.querySelector("#eliminarAmigo");
+
+console.log(dEditarAmigo);
 
 function validarCedula() {
-  var cedula = dCedula.value.trim();
-  var cedulaValida = true;
+  let cedula = dCedula.value.trim();
+  let cedulaValida = true;
   if (cedula.length == 0) {
     cedulaValida = false;
     dCedula.classList.add("error");
@@ -23,25 +25,25 @@ function validarCedula() {
 }
 
 function consultarPorCedula() {
-  if (validarCedula()) {
-    var peticionDatos = {
+  const cedulaValidada = validarCedula();
+  if (cedulaValidada) {
+    let peticionDatos = {
       cedula: dCedula.value.trim(),
       cedula_lider: dCedulaLider.value.trim(),
-      perfil_usuario : perfilUsuario.value.trim()
+      perfil_usuario: perfilUsuario.value.trim(),
     };
-
     $.ajax({
       type: "POST",
       url: `../../controlador/lider/consultar_por_cedula_json.php`,
       dataType: "JSON",
       data: peticionDatos,
       success: function (amigo) {
-        if(amigo){
-          if(amigo.length == 0){
+        if (amigo) {
+          if (amigo.length == 0) {
             ningunLider.classList.remove("ocultar");
-          }else{
+          } else {
             ningunLider.classList.add("ocultar");
-          }       
+          }
         }
 
         if (amigo["cedula"] !== undefined) {
@@ -133,7 +135,7 @@ function consultarPorCedula() {
         }
       },
       error: function (err) {
-        console.log(err);
+        console.error(err);
       },
     });
   }
@@ -145,11 +147,11 @@ function editarAmigo() {
   window.location.href =
     document.querySelector("#sitioEditar").value + dCedulaEncontrada.value;
 }
-function eliminarAmigo(){
+function eliminarAmigo() {
   var peticionDatos = {
-    cedula: dCedula.value.trim()
+    cedula: dCedula.value.trim(),
   };
-  
+
   $.ajax({
     type: "POST",
     url: `../../controlador/lider/eliminar_amigo.php`,
@@ -164,6 +166,6 @@ function eliminarAmigo(){
     },
   });
 }
-
-//botonEliminarAmigo.addEventListener("click",eliminarAmigo);
 dEditarAmigo.addEventListener("click", editarAmigo);
+botonEliminarAmigo.addEventListener("click",eliminarAmigo);
+

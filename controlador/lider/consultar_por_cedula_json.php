@@ -103,6 +103,7 @@ if ($resultados->num_rows > 0) {
     $amigo = $resultado;
   }
 }
+echo json_encode($amigo);
 
 
 
