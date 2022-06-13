@@ -191,5 +191,6 @@ botonBuscarPorNombre.addEventListener("click", consultarLiderPorNombre);
 botonEditarAmigo.addEventListener("click", editarAmigo);
 
 function editarAmigo() {
+  alert(sitioEditar.value + campoCedulaLider.value);
   location.href = sitioEditar.value + campoCedulaLider.value;
 }
