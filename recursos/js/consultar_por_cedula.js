@@ -147,25 +147,25 @@ function editarAmigo() {
   window.location.href =
     sitioEditar.value + dCedulaEncontrada.value;
 }
-function eliminarAmigo() {
-  var peticionDatos = {
-    cedula: dCedula.value.trim(),
-  };
+// function eliminarAmigo() {
+//   var peticionDatos = {
+//     cedula: dCedula.value.trim(),
+//   };
 
-  $.ajax({
-    type: "POST",
-    url: `../../controlador/lider/eliminar_amigo.php`,
-    dataType: "JSON",
-    data: peticionDatos,
-    success: function () {
-      alert("Amigo eliminado correctamente");
-      location.reload();
-    },
-    error: function (err) {
-      console.log(err);
-    },
-  });
-}
+//   $.ajax({
+//     type: "POST",
+//     url: `../../controlador/lider/eliminar_amigo.php`,
+//     dataType: "JSON",
+//     data: peticionDatos,
+//     success: function () {
+//       alert("Amigo eliminado correctamente");
+//       location.reload();
+//     },
+//     error: function (err) {
+//       console.log(err);
+//     },
+//   });
+// }
 dEditarAmigo.addEventListener("click", editarAmigo);
-botonEliminarAmigo.addEventListener("click",eliminarAmigo);
+//botonEliminarAmigo.addEventListener("click",eliminarAmigo);
 
