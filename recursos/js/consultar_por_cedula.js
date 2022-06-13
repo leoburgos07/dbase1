@@ -8,8 +8,8 @@ const dCedulaEncontrada = document.querySelector("#cedulaEncontrada");
 const ningunLider = document.querySelector("#ningunLiderEncontrado");
 const perfilUsuario = document.querySelector("#perfil");
 const botonEliminarAmigo = document.querySelector("#eliminarAmigo");
-var sitioEditar = document.querySelector('#sitioEditar');
-
+const sitioEditar = document.querySelector('#sitioEditar');
+console.log(sitioEditar.value);
 
 function validarCedula() {
   let cedula = dCedula.value.trim();
@@ -143,27 +143,10 @@ function consultarPorCedula() {
 dBuscarPorCedula.addEventListener("click", consultarPorCedula);
 
 function editarAmigo() {
-  location.href = sitioEditar.value + dCedulaEncontrada.value;
+  alert(sitioEditar.value + dCedulaEncontrada.value)
+  //location.href = sitioEditar.value + dCedulaEncontrada.value;
 }
-// function eliminarAmigo() {
-//   var peticionDatos = {
-//     cedula: dCedula.value.trim(),
-//   };
 
-//   $.ajax({
-//     type: "POST",
-//     url: `../../controlador/lider/eliminar_amigo.php`,
-//     dataType: "JSON",
-//     data: peticionDatos,
-//     success: function () {
-//       alert("Amigo eliminado correctamente");
-//       location.reload();
-//     },
-//     error: function (err) {
-//       console.log(err);
-//     },
-//   });
-// }
 dEditarAmigo.addEventListener("click", editarAmigo);
-//botonEliminarAmigo.addEventListener("click",eliminarAmigo);
+
 
