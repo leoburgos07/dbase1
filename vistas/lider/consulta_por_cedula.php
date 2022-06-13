@@ -67,9 +67,7 @@
 
           <br>
 
-          <input type="hidden" id="sitioEditar" value="<?=  ( $_SERVER['REQUEST_SCHEME'] .
-                                                          '://' .
-                                                          $_SERVER['SERVER_NAME'] .
+          <input type="hidden" id="sitioEditar" value="<?=  ( $sitioBase .
                                                           '/vistas/amigo/editar_amigo.php' .
                                                           '?cedula='
                                                         ) ?>">
