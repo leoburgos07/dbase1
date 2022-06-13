@@ -8,7 +8,7 @@ const dCedulaEncontrada = document.querySelector("#cedulaEncontrada");
 const ningunLider = document.querySelector("#ningunLiderEncontrado");
 const perfilUsuario = document.querySelector("#perfil");
 const botonEliminarAmigo = document.querySelector("#eliminarAmigo");
-const sitioEditar = document.querySelector('#sitioEditar');
+var sitioEditar = document.querySelector('#sitioEditar');
 
 
 function validarCedula() {
@@ -143,9 +143,7 @@ function consultarPorCedula() {
 dBuscarPorCedula.addEventListener("click", consultarPorCedula);
 
 function editarAmigo() {
-  console.log(sitioEditar.value + dCedulaEncontrada.value);
-  window.location.href =
-    sitioEditar.value + dCedulaEncontrada.value;
+  location.href = sitioEditar.value + dCedulaEncontrada.value;
 }
 // function eliminarAmigo() {
 //   var peticionDatos = {
